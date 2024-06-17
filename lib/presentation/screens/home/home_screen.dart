@@ -59,7 +59,8 @@ class _CustomListTile extends StatelessWidget {
     //         builder: (context) => const ButtonsScreen(),
     //   ),
     // );
-    
+    // se puede hacer el llamado de esta forma depenciendo de el link 
+   // asi sera el cambio de la pantalla 
     Navigator.pushNamed(context, menuItem.link);
       },
 
