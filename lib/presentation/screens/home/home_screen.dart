@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_aplication/config/buttons/buttons_screen.dart';
+import 'package:flutter_widget_aplication/config/cards/cards_screen.dart';
 import 'package:flutter_widget_aplication/config/menu/menu_items.dart';
+import 'package:go_router/go_router.dart';
 
 
 class Homescreen extends StatelessWidget {
+
+  static const name = 'home_screen';
+
   const Homescreen({super.key});
 
   @override
@@ -60,8 +65,11 @@ class _CustomListTile extends StatelessWidget {
     //   ),
     // );
     // se puede hacer el llamado de esta forma depenciendo de el link 
-   // asi sera el cambio de la pantalla 
-    Navigator.pushNamed(context, menuItem.link);
+    
+    // asi sera el cambio de la pantalla 
+    //Navigator.pushNamed(context, menuItem.link);
+
+    context.push(CardsScreen.name);
       },
 
     );
