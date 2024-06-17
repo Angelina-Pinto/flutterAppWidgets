@@ -28,7 +28,10 @@ class _homeView extends StatelessWidget {
         //recorriendo lista de appMenuItems 
         final menuItem = appMenuItems[index];
         //obteniendo el valor de objeto 
-        return Text(menuItem.title);
+        return ListTile(
+          title: Text(menuItem.title),
+          subtitle: Text(menuItem.subtitle),
+        );
       },
     );
   }
