@@ -17,7 +17,7 @@ class ButtonsScreen extends StatelessWidget {
           //Regresando a pantalla anterior 
           Navigator.of(context).pop();
           //otra forma de regresar a pantalla
-          context.pop();
+          //context.pop();
         },
         child: const Icon(Icons.arrow_back),),
     );
