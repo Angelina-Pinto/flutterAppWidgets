@@ -65,11 +65,11 @@ class _CustomListTile extends StatelessWidget {
     //   ),
     // );
     // se puede hacer el llamado de esta forma depenciendo de el link 
-    
-    // asi sera el cambio de la pantalla 
-    //Navigator.pushNamed(context, menuItem.link);
 
-    context.push(CardsScreen.name);
+    // asi sera el cambio de la pantalla 
+    Navigator.pushNamed(context, menuItem.link);
+
+    //context.push(Homescreen.name);
       },
 
     );
