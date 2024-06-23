@@ -41,8 +41,14 @@ const List<MenuItems> appMenuItems = [
     MenuItems(
     title: 'Introduccion a la aplicacion ', 
     subtitle: 'Pequeño tutorial', 
-    link: '/ui_controls', 
-    icon: Icons.car_rental_outlined)
+    link: '/tutorial', 
+    icon: Icons.fast_forward),
+
+    MenuItems(
+    title: 'Scroll infinito y pull', 
+    subtitle: 'Infinite Scroll', 
+    link: '/infinite', 
+    icon: Icons.list_alt_rounded)
 ];
 
 class MenuItems{
