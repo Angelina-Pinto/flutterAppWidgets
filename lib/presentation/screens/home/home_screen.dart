@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 
 class Homescreen extends StatelessWidget {
 
-  static const name = 'home_screen';
+  static const name = 'Homescreen';
 
   const Homescreen({super.key});
 
@@ -67,9 +67,9 @@ class _CustomListTile extends StatelessWidget {
     // se puede hacer el llamado de esta forma depenciendo de el link 
 
     // asi sera el cambio de la pantalla 
-    Navigator.pushNamed(context, menuItem.link);
+    //Navigator.pushNamed(context, menuItem.link);
 
-    //context.push(Homescreen.name);
+    context.push(menuItem.link);
       },
 
     );
