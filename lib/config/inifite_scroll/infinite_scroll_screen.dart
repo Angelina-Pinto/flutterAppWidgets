@@ -12,25 +12,33 @@ class InfiniteScrollScreen extends StatefulWidget {
 
 class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
   
-  List<int> imagesId = [1,2,3];
+  List<int> imagesId = [1,2,3,4,5];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Infinite Scroll'),
-      ),
-      body: ListView.builder(
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return FadeInImage(
-            placeholder: const AssetImage('assets/images/jar-loading.gif'), 
-            image: NetworkImage('https://picsum.photos/seed/picsum/200/300'));
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => context.pop(),
-        child: Icon(Icons.ac_unit_rounded),
+    return MediaQuery.removePadding(
+      context: context,
+      removeTop: true,
+      removeBottom: true,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Infinite Scroll'),
         ),
+        body: ListView.builder(
+          itemCount: imagesId.length,
+          itemBuilder: (context, index) {
+            return FadeInImage(
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: 300,
+              placeholder: const AssetImage('assets/images/jar-loading.gif'), 
+              image: NetworkImage('https://picsum.photos/id/${imagesId[index]}/500/300'));
+          },
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => context.pop(),
+          child: Icon(Icons.ac_unit_rounded),
+          ),
+      ),
     );
   }
 }
