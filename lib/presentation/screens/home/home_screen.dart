@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_aplication/config/buttons/buttons_screen.dart';
 import 'package:flutter_widget_aplication/config/cards/cards_screen.dart';
 import 'package:flutter_widget_aplication/config/menu/menu_items.dart';
+import 'package:flutter_widget_aplication/presentation/screens/home/widgets/side_menu.dart';
 import 'package:go_router/go_router.dart';
 
 
@@ -18,6 +19,7 @@ class Homescreen extends StatelessWidget {
         title:const Text('flutter + material 3'),
       ),
       body:const  _homeView(),
+      drawer: SideMenu(),
     );
   }
 }
