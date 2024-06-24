@@ -41,6 +41,33 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     isMounted = false;
     super.dispose();
   }
+  
+  void moveScrollToBottom(){
+    if(scrollController.position.pixels +100 <= scrollController.position.devicePixelRatio) return;
+    scrollController.animateTo(
+
+      scrollController.position.pixels + 120, 
+      duration: const Duration(milliseconds: 300), 
+      curve: Curves.fastOutSlowIn);
+  }
+
+  Future<void> onRefresh() async{
+    isLoading = true;
+    setState(() {
+      
+    });
+    await Future.delayed(const Duration(seconds: 3));
+    if(!isMounted)return;
+    isLoading = false;
+    final lasId = imagesId.last;
+    
+    imagesId.clear();
+    imagesId.add(lasId + 1);
+    addFiveImages();
+    setState(() { });
+    
+  }
+
 
   void addFiveImages(){
     // con esto se cual es el ultimo 
@@ -87,17 +114,22 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
         appBar: AppBar(
           title: Text('Infinite Scroll'),
         ),
-        body: ListView.builder(
-          controller: scrollController,
-          itemCount: imagesId.length,
-          itemBuilder: (context, index) {
-            return FadeInImage(
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: 300,
-              placeholder: const AssetImage('assets/images/jar-loading.gif'), 
-              image: NetworkImage('https://picsum.photos/id/${imagesId[index]}/500/300'));
-          },
+        body: RefreshIndicator(
+          onRefresh: onRefresh, 
+          edgeOffset: 10,
+          strokeWidth: 2,
+          child: ListView.builder(
+            controller: scrollController,
+            itemCount: imagesId.length,
+            itemBuilder: (context, index) {
+              return FadeInImage(
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: 300,
+                placeholder: const AssetImage('assets/images/jar-loading.gif'), 
+                image: NetworkImage('https://picsum.photos/id/${imagesId[index]}/500/300'));
+            },
+          ),
         ),
 
         floatingActionButton: FloatingActionButton(
