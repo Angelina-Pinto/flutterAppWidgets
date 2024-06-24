@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:animate_do/animate_do.dart';
 
 class InfiniteScrollScreen extends StatefulWidget {
   
@@ -73,6 +74,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     //TODO Revisar si esta montado el componente / widget 
     if(!isMounted) return;
     setState(() {});
+    //TODO MOVER SCROLL 
   }
 
   @override
@@ -97,9 +99,16 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
               image: NetworkImage('https://picsum.photos/id/${imagesId[index]}/500/300'));
           },
         ),
+
         floatingActionButton: FloatingActionButton(
           onPressed: () => context.pop(),
-          child: Icon(Icons.ac_unit_rounded),
+          //si isLoading esta en true muestra el widget refresh_rounded
+          child: isLoading
+          ? SpinPerfect(
+            infinite: true,
+            child: Icon(Icons.refresh_rounded)
+            )
+            : const Icon(Icons.arrow_back_ios_new_outlined)
           ),
       ),
     );
