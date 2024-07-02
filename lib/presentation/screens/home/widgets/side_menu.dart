@@ -2,9 +2,17 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_aplication/config/menu/menu_items.dart';
+import 'package:go_router/go_router.dart';
 
 class SideMenu extends StatefulWidget {
-  const SideMenu({super.key});
+  final GlobalKey<ScaffoldState> scaffoldKey;
+
+  const SideMenu({
+    super.key, 
+    required this.scaffoldKey
+    });
+
+
 
   @override
   State<SideMenu> createState() => _SideMenuState();
@@ -30,6 +38,10 @@ class _SideMenuState extends State<SideMenu> {
         setState(() {
           navDrawerIndex = value ;
         });
+        //con esto se que opcion se seleciono de menu
+        final menuItem = appMenuItems[value];
+        context.push(menuItem.link);  
+        widget.scaffoldKey.currentState?.closeDrawer();
       },
       children: [
         Padding(
