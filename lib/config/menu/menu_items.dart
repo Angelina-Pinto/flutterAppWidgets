@@ -48,7 +48,19 @@ const List<MenuItems> appMenuItems = [
     title: 'Scroll infinito y pull', 
     subtitle: 'Infinite Scroll', 
     link: '/infinite', 
-    icon: Icons.list_alt_rounded)
+    icon: Icons.list_alt_rounded),
+    
+    MenuItems(
+    title: 'Introducciòn a riverpod ', 
+    subtitle: 'Counter Screen', 
+    link: '/counter', 
+    icon: Icons.list_alt_rounded),
+    
+    MenuItems(
+    title: 'Tema', 
+    subtitle: 'Cambiar tema de la aplicación', 
+    link: '/theme-changer', 
+    icon: Icons.color_lens_outlined)
 ];
 
 class MenuItems{

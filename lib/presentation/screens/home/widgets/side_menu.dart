@@ -49,7 +49,7 @@ class _SideMenuState extends State<SideMenu> {
 
           child: Text('main'),
         ),
-        
+        //barriendo lista de items 
         ...appMenuItems
         .sublist(0,3)
         .map((item) => NavigationDrawerDestination(

@@ -1,4 +1,5 @@
 
+import 'package:flutter_widget_aplication/config/counter/counter_screen.dart';
 import 'package:flutter_widget_aplication/config/progress/progress_screen.dart';
 import 'package:flutter_widget_aplication/config/screens/screen.dart';
 import 'package:go_router/go_router.dart';
@@ -53,6 +54,17 @@ final appRouter  = GoRouter(
       path: '/infinite',
       builder: (context, state) =>const  InfiniteScrollScreen(),
     ),
+    GoRoute(
+    
+      path: '/counter',
+      builder: (context, state) =>const  CounterScreen(),
+    ),
+     GoRoute(
+    
+      path: '/theme-changer',
+      builder: (context, state) =>const  ThemeChangeScreen(),
+    ),
+
     
 
   ],
